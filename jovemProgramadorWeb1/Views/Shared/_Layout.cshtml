@@ -3,12 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - jovemProgramadorWeb1</title>
+    <title>@ViewData["Title"] - jovemProgramadorWeb</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/jovemProgramadorWeb1.styles.css" asp-append-version="true" />
 </head>
 <body>
+   <style>
+        body{
+            background-color:lightblue
+
+        }
+</style>
 
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -24,11 +30,16 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Página Inicial</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Aluno">Aluno</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Aluno" asp-action="Index">Aluno</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Professor">Professor</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Professor" asp-action="Index">Professor</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Conhecimentos" asp-action="Index">Conhecimentos</a>
+
+                        </li>
+                         
                     </ul>
                 </div>
             </div>
@@ -51,3 +62,6 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+
+

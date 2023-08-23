@@ -1,8 +1,26 @@
+using jovemProgramadorWeb1.Data;
+using jovemProgramadorWeb1.Data.Repositorio;
+using jovemProgramadorWeb1.Data.Repositorio.Interfaces;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+
+
+
+builder.Services.AddHttpClient();
+
+
+
+var connectionstring = builder.Configuration.GetConnectionString("StringConexao");
+IServiceCollection serviceCollection = builder.Services.AddDbContext<BancoContexto>(options => options.UseSqlServer(connectionstring));
+
+
+
+builder.Services.AddScoped<IAlunoRepositorio, AlunoRepositorio>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -25,3 +43,5 @@ app.MapControllerRoute(
 	pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+

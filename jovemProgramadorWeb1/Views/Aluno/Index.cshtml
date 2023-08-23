@@ -1,0 +1,58 @@
+﻿@model List<Aluno>
+
+@if (TempData["MsgErro"] != null)
+{
+        <div class="alert alert-danger">
+        @TempData["MsgErro"]
+        </div>
+}
+
+@if (TempData["MsgSuccess"] != null)
+{
+        <div class="alert alert-success">
+        @TempData["MsgSuccess"]
+        </div>
+}
+
+<p>Alunos cadastrados para o curso de programação web.</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Idade</th>
+            <th scope="col">Email</th>
+            <th scope="col">CEP</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (Aluno aluno in Model)
+            {
+                        <tr>
+                            <td>@aluno.nome</td>
+                            <td>@aluno.idade</td>
+                            <td>@aluno.email</td>
+                            <td>@aluno.cep</td>
+                            <td>
+                                <div class="d-grid gap-2 d-md-block">
+                                    <a class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="@aluno.cep">Endereco</a>
+                                            
+                                    <method="post" asp-controller="Aluno" asp-action="EditarAluno" asp-route-id="@aluno.id">
+                                                        <button type="submit" class="btn btn-primary">Editar</button>
+                                    
+                                    <method="post" asp-controller="Aluno" asp-action="ExcluirAluno" asp-route-id="@aluno.id">
+                                        <button type="submit" class="btn btn-danger">Excluir</button>
+
+                                    
+                                </div>
+                            </td>
+                        </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-center">
+    <a class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="Adicionar"> Adicionar Novo Aluno</a>
+</div>
