@@ -30,10 +30,15 @@ namespace jovemProgramadorWeb1.Data.Repositorio
             _bancoContexto.Aluno.Add(aluno);
             _bancoContexto.SaveChanges();
         }
+        
         public void ExcluirAluno(Aluno aluno)
         {
             _bancoContexto.Aluno.Remove(aluno);
             _bancoContexto.SaveChanges();
+        }
+        public Aluno BuscarId(int id)
+        {
+            return _bancoContexto.Aluno.FirstOrDefault(x => x.id == id);
         }
         public void EditarAluno(Aluno aluno)
         {

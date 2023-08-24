@@ -38,11 +38,11 @@
                                 <div class="d-grid gap-2 d-md-block">
                                     <a class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="@aluno.cep">Endereco</a>
                                             
-                                    <method="post" asp-controller="Aluno" asp-action="EditarAluno" asp-route-id="@aluno.id">
-                                                        <button type="submit" class="btn btn-primary">Editar</button>
+                                    <a method="post" asp-controller="Aluno" asp-action="EditarAluno" asp-route-id="@aluno.id">
+                                                        <button type="submit" class="btn btn-primary">Editar</button></a>
                                     
-                                    <method="post" asp-controller="Aluno" asp-action="ExcluirAluno" asp-route-id="@aluno.id">
-                                        <button type="submit" class="btn btn-danger">Excluir</button>
+                                    <a method="post" asp-controller="Aluno" asp-action="ExcluirAluno" asp-route-id="@aluno.id">
+                                        <button type="submit" class="btn btn-danger">Excluir</button></a>
 
                                     
                                 </div>
@@ -54,5 +54,5 @@
 </table>
 
 <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-    <a class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="Adicionar"> Adicionar Novo Aluno</a>
+    <a class="btn btn-primary" type="submit"  role="button" asp-controller="Aluno" asp-action="Adicionar">Adicionar Novo Aluno</a>
 </div>

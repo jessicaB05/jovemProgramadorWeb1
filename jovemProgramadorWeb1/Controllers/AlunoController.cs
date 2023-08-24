@@ -60,12 +60,16 @@ namespace jovemProgramadorWeb1.Controllers
             TempData["MsgSucess"] = "Sucesso!";
             return View("Endereco", endereco);
         }
+        public IActionResult Adicionar()
+        {
+            return View();
+        }
         public IActionResult InserirAluno(Aluno aluno)
         {
             try
             {
                 _alunoRepositorio.InserirAluno(aluno);
-
+                TempData["MsgSucesso"] = "Aluno adicionado com sucesso";
             }
             catch (Exception e)
             {
@@ -73,7 +77,7 @@ namespace jovemProgramadorWeb1.Controllers
 
             }
 
-            TempData["MsgSucesso"] = "Aluno adicionado com sucesso";
+            
             return RedirectToAction("Index");
 
 
@@ -88,7 +92,7 @@ namespace jovemProgramadorWeb1.Controllers
             try
             {
                 _alunoRepositorio.ExcluirAluno(aluno);
-
+                TempData["MsgSucesso"] = "Aluno excluido com sucesso";
             }
             catch (Exception e)
             {
@@ -96,14 +100,14 @@ namespace jovemProgramadorWeb1.Controllers
 
             }
 
-            TempData["MsgSucesso"] = "Aluno excluido com sucesso";
+            
             return RedirectToAction("Index");
 
 
         }
-        public IActionResult EditarAluno()
+        public IActionResult EditarAluno(int id)
         {
-            return View();
+            return RedirectToAction();
         }
         public IActionResult EditarAluno(Aluno aluno)
         {

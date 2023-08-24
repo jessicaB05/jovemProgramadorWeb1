@@ -1,22 +1,22 @@
-﻿
-@model Aluno
+﻿@model Aluno
 
-<form asp-controller="Aluno" asp-action="InserirAluno" method ="post">
+
+<form asp-controller="Aluno" asp-action="InserirAluno" method="post">
 
     <div class="mb-3">
-        <label formaction="name" class="form-label">nome</label>
+        <label for="name" class="form-label">nome</label>
         <input type="text" asp-for="nome" class="form-control col-md-4">
 
-        <label formaction="name" class="form-label">idade</label>
+        <label for="idade" class="form-label">idade</label>
         <input type="text" asp-for="idade" class="form-control col-md-4">
 
-        <label formaction="name" class="form-label">email</label>
+        <label for="email" class="form-label">email</label>
         <input type="text" asp-for="email" class="form-control col-md-4">
 
-        <label formaction="name" class="form-label">cep</label>
+        <label for="cep" class="form-label">cep</label>
         <input type="text" asp-for="cep" class="form-control col-md-4">
-
     </div>
+
     <div class="text-center">
         <button class="btn btn-primary" type="submit">Adicionar</button>
     </div>
